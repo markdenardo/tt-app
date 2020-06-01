@@ -1,68 +1,70 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app), using the [Redux](https://redux.js.org/) and [Redux Toolkit](https://redux-toolkit.js.org/) template.
+top-trailers 
 
-## Available Scripts
+this application is a video player and sharing platform in react-redux which allows a user to 
 
-In the project directory, you can run:
+ROUTES and USER STORIES
 
-### `yarn start`
+HOME (/home)
+-visit a home page which explains the premise of the project and how to use the application before proceeding, 
+-choose to go to the CAROUSEL, or ALL pages
+-this page will share how many movies are in the database 
+-and show the number 1 trailer
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+CAROUSEL (/topten)
+-view movie trailer videos in a listed format, which is a sidescrolling carousel (can go L/R) w a click/drag
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+ALL (/movies)
+-submit a trailer, adding the Name, Director, and url
+<!-- -up/down vote trailers in a top 10 list (only 10), -->
+-add commments to a trailer, 
+-view a full list of submitted trailers from all users (more than 10) 
 
-### `yarn test`
+MODELS:
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Movie: ID, Name, Director, Year, (stretch goal Rank)
+Comments: text, movieid
 
-### `yarn build`
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+FETCH CALLS
+API/movies (GET/POST)
+API/movies/id
+API/movies/rank/id (GET)
+API/home (GET)
+API/movies/topten (GET)
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+Component Breakdown
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+HOME
 
-### `yarn eject`
+<Index/>
+    <App/>
+    
+<App/>
+    <Instructions /> Presentational
+            <Banner /> Presentational
+        <TopTrailer /> Container (this could be a random video)
+            <Player /> Class
+            <Text /> Presentational
+        <Links /> Functional to routes
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+TOPTEN(first submitted video)
+    <Carousel />
+        <Player />
+            <Banner /> Presentational
+        <Left/Right /> Functional
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+ALL
+    <List /> all films w a link to a show page (modified HOME PAGE w the film and it's rank)
+        <Comments /> Presentational
+        <Upvote/Downvote/> Functional
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+REDUX ACTIONS:
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+    GET_MOVIES (gets all the movies)
+    GET_TOPMOVIE (gets number 1)
+    GET_TOPTEN (gets top ten)
+    ADD_MOVIE (POST movie)
+    ADD_COMMENT (POST comment)
+    <!-- UPVOTE_MOVIE (increase rank of MOVIE) -->
+    <!-- DOWNVOTE_MOVIE (decrease rank of MOVIE) -->
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `yarn build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
