@@ -37,9 +37,9 @@ Component Breakdown
 HOME
 
 <Index/>
-    <App/>
-    
 <App/>
+    
+<Home/>
     <Instructions /> Presentational
             <Banner /> Presentational
         <TopTrailer /> Container (this could be a random video)
