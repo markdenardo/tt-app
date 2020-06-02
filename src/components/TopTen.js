@@ -4,7 +4,7 @@ const TopTen = () => {
     return (
         <div>
             <h1>
-                Top Ten Page link
+                Top Ten Page
             </h1>
         </div>
         )

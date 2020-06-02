@@ -4,7 +4,7 @@ const Movies = () => {
     return (
         <div>
             <h1>
-                Movies link
+                Movies Page
             </h1>
         </div>
         );
