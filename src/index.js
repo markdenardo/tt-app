@@ -2,9 +2,14 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './containers/App';
-import store from './app/store';
+
 import { Provider } from 'react-redux';
+import { createStore, applyMiddleware } from 'redux'
+import thunk from 'redux-thunk';
+import  movieReducer from './reducers/movieReducer'
 import * as serviceWorker from './serviceWorker';
+
+const store = createStore(movieReducer, applyMiddleware(thunk))
 
 ReactDOM.render(
   <React.StrictMode>

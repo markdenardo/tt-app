@@ -1,11 +1,12 @@
 import React from 'react'
+import HomeText from './HomeText'
+import Player from './Player'
 
 const Home = () => {
     return (
-        <div>
-            <h1>
-                Home Page
-            </h1>
+        <div classname="home-div">
+            <HomeText />
+            <Player />
         </div>
         );
     };

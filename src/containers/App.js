@@ -15,10 +15,12 @@ const App = (props) => {
   return (
     <Router>
     <div className="App">
+      <header className="app-header">
       <NavBar />
         <Route exact path="/" component={Home} />
         <Route exact path="/topten" component={TopTen} />
         <Route exact path="/movies" component={Movies} />
+      </header>
     </div>
     </Router>
   );
