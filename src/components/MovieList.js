@@ -1,14 +1,11 @@
-import React from 'react'
+import React from 'react';
 import { connect } from 'react-redux';
 
 class MovieList extends React.Component{
+    
 
-    componentDidMount = () => {
-        console.log(this.props)
-        this.props.fetchMovies()
-    }
     render(){
-        console.log(this.props.movies)
+        console.log(this.props)
         return(
             <div>
                 MovieList
@@ -17,11 +14,4 @@ class MovieList extends React.Component{
     }
 }
 
-const MapDispatchToProps = dispatch => {
-    return {
-        fetchMovies: () => dispatch(fetchMovies())
-    }
-}
-
-export default connect(MapStateToProps, MapDispatchToProps)(index)
-
+export default MovieList;

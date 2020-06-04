@@ -4,7 +4,7 @@ import Player from './Player'
 
 const Home = () => {
     return (
-        <div classname="home-div">
+        <div className="home-div">
             <HomeText />
             <Player />
         </div>

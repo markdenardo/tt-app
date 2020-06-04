@@ -1,13 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './containers/App';
-
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux'
 import thunk from 'redux-thunk';
-import  movieReducer from './reducers/movieReducer'
 import * as serviceWorker from './serviceWorker';
+
+import  movieReducer from './reducers/movieReducer'
+import App from './containers/App';
+import './index.css';
 
 const store = createStore(movieReducer, applyMiddleware(thunk))
 

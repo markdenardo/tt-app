@@ -10,7 +10,6 @@ import Home from '../components/Home'
 import TopTen from '../components/TopTen'
 import Movies from '../components/Movies'
 
-
 const App = (props) => {
   return (
     <Router>
