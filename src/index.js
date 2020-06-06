@@ -17,9 +17,14 @@ const reducers = combineReducers(
   }
 )
 
+const enhancers = composeEnhancers(
+  
+    applyMiddleware(thunk)
+)
+
 const store = createStore(
   reducers, 
-  composeEnhancers(applyMiddleware(thunk)),
+  enhancers,
   );
   
 ReactDOM.render( 

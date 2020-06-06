@@ -11,7 +11,7 @@ class MovieList extends React.Component {
         return (
             <div>
                 {/* {this.listMovies()} */}
-              
+              MovieList
             </div>
         )
     };

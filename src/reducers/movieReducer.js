@@ -2,30 +2,38 @@ const movieReducer = (state = {movies: [], loading: false }, action) => {
     
     switch(action.type) {
 
-        case 'LOADING_MOVIES':
-            return {
-                ...state,
-                movies:[...state.movies],
-                loading: true
-            }
-            
-        case 'SET_MOVIES':
+    //check for loading
+        case 'LOADING_TRUE':
             return {
                 ...state,
                 movies: [...state.movies],
-                loading: false
+                loading: true
             }
+    //reducer needed for GET requests
+        // case 'SET_MOVIES':
+        //     return {
+        //         ...state,
+        //         movies: action.movies,
+        //         loading: false
+        //     }
 
-        case 'ADD_MOVIES':
+        case 'GET_MOVIES':
             return {
                 ...state,
                 movies: action.movies,
                 loading: false
             }
+
+    //reducer needed for POST request
+        // case 'ADD_MOVIES':
+        //     return {
+        //         ...state,
+        //         movies: action.movies,
+        //         loading: false
+        //     }
             
-                default:
-                    console.log(state)
-                    return state;
+        default:
+            return state;
     };
 
 };

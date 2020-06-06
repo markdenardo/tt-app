@@ -1,27 +1,33 @@
 import React from 'react'
 import { connect } from 'react-redux';
-import { getMovies, setMovies } from '../actions/movieActions'
+import { getMovies } from '../actions/movieActions'
 import MovieList from './MovieList'
 
 class Movies extends React.Component {
+    
     componentDidMount(){
+        console.log(this.props)
         this.props.getMovies()
     }
 
     handleLoading = () => {
-        console.log(this.props.loading)
+
         if(this.props.loading){
             return <div>Loading...</div>
-        } else {
+        }   
+            else if(this.props.movies != null){
             return <MovieList movie={this.props.movies}/>
+        }   
+            else if(this.props.movies == null){
+            return <div>NULL</div>
         }
+
     }
     render(){
         return (
             <div>
-                Movies
-                <MovieList />
                 {this.handleLoading()}
+                <MovieList />
             </div>
         );
     } 
@@ -35,4 +41,4 @@ const mapStateToProps = state => {
 
 
 
-export default connect(mapStateToProps,{getMovies,setMovies})(Movies);
+export default connect(mapStateToProps,{getMovies})(Movies);
