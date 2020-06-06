@@ -1,17 +1,21 @@
 import React from 'react';
-import { connect } from 'react-redux';
 
-class MovieList extends React.Component{
-    
+class MovieList extends React.Component {
 
-    render(){
-        console.log(this.props)
-        return(
-            <div>
-                MovieList
-            </div>
-        );
+    listMovies = () => {
+        
+        // return this.props.moviesArr.map(movie => <li id={movie.id} name={movie.name} dir ={movie.dir} url={movie.url}/>)
     }
+
+    render() {
+        return (
+            <div>
+                {/* {this.listMovies()} */}
+              
+            </div>
+        )
+    };
+
 }
 
 export default MovieList;

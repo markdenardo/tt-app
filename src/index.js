@@ -1,17 +1,28 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
-import { createStore, applyMiddleware } from 'redux'
+import { createStore, applyMiddleware, compose, combineReducers } from 'redux';
 import thunk from 'redux-thunk';
-import * as serviceWorker from './serviceWorker';
-
-import  movieReducer from './reducers/movieReducer'
+import moviesReducer from './reducers/movieReducer'
 import App from './containers/App';
 import './index.css';
+import * as serviceWorker from './serviceWorker';
 
-const store = createStore(movieReducer, applyMiddleware(thunk))
+// import store from './app/store';
+const composeEnhancers = (typeof window !== 'undefined' && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__) || compose;
 
-ReactDOM.render(
+const reducers = combineReducers(
+  {
+    moviesReducer
+  }
+)
+
+const store = createStore(
+  reducers, 
+  composeEnhancers(applyMiddleware(thunk)),
+  );
+  
+ReactDOM.render( 
   <React.StrictMode>
     <Provider store={store}>
       <App />
