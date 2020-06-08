@@ -18,9 +18,13 @@ const movieReducer = (state = {movies: [], loading: false }, action) => {
         //     }
 
         case 'GET_MOVIES':
+            const newMoviesArr = action.movies.map(movie => {
+                    const newMovie = Object.assign({}, movie)
+                    return newMovie
+            }) 
             return {
                 ...state,
-                movies: action.movies,
+                movies: newMoviesArr,
                 loading: false
             }
 

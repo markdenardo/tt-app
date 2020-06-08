@@ -1,6 +1,6 @@
 import React from 'react'
 import HomeText from './HomeText'
-import Player from './Player'
+import Player from '../containers/Player'
 
 const Home = () => {
     return (
