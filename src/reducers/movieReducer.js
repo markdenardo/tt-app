@@ -3,7 +3,11 @@ const movieReducer = (state = {movies: [], loading: false }, action) => {
     switch(action.type) {
         
         case 'SET_MOVIES':
-            return action.movies
+            return{
+             movies: action.movies,
+            loading: false
+        }
+            
             
 
         //check for loading

@@ -1,6 +1,7 @@
 import React from 'react';
 import { getMovies } from '../actions/movieActions'
 import { connect } from 'react-redux'
+import Player from './Player'
 
 class MovieList extends React.Component {
 
@@ -9,16 +10,16 @@ class MovieList extends React.Component {
     }
 
     handleLoading = () => {
-
-        if (this.props.loading) {
+        console.log(this.props)
+        if (this.props.loading === true && this.props.movie === undefined) {
             return <div>Loading...</div>
         }
-        else if (this.props.loading !== true) {
-        return <div>{this.props.movies}</div>
+        else if (this.props.loading !== true && this.props.movie !== undefined){
+            console.log(this.props.movies.map(movie=><div>{this.movie.name}</div>))
         }
-        else if (this.props.movies == null) {
-            return <div>NULL</div>
-        }
+        // else if (this.props.movies == null) {
+        //     return <div>NULL</div>
+        // }
 
     }
 
@@ -30,6 +31,12 @@ class MovieList extends React.Component {
         )
     };
 
+}
+
+const mapStateToProps = state => {
+    return ({
+        movies: state.movies
+    })
 }
 
 const mapDispatchToProps = (dispatch) => {
