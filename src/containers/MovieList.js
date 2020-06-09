@@ -11,15 +11,18 @@ class MovieList extends React.Component {
 
     handleLoading = () => {
         console.log(this.props)
-        if (this.props.loading === true && this.props.movie === undefined) {
+        // if (this.props.loading === true && this.props.movie === undefined) {
+        if (this.props.loading === true) {
             return <div>Loading...</div>
         }
-        else if (this.props.loading !== true && this.props.movie !== undefined){
-            console.log(this.props.movies.map(movie=><div>{this.movie.name}</div>))
+        // else if (this.props.loading !== true && this.props.movie !== undefined){
+        else if (this.props.loading !== true) {
+            return console.log(this.props.movies)
+            // return this.props.movies.map(movie=><div>{movie.name}</div>)
         }
-        // else if (this.props.movies == null) {
-        //     return <div>NULL</div>
-        // }
+        else if (this.props.movies == null) {
+            return <div>NULL</div>
+        }
 
     }
 
@@ -45,5 +48,5 @@ const mapDispatchToProps = (dispatch) => {
     }
 }
 
-    export default connect(null, {getMovies})(MovieList);
+    export default connect(mapStateToProps, {getMovies})(MovieList);
 

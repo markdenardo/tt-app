@@ -6,30 +6,45 @@ export const setMovies = movies => {
                 }
         }
 
-export const loadingTrue = () => {
-    return {
-        type: "LOADING_TRUE",
-        loading: true
-    }
-}
+// export const loadingTrue = () => {
+//     return {
+//         type: "LOADING_TRUE",
+//         loading: true
+//     }
+// }
 
-export const loadingFalse = () => {
-    return {
-        type: "LOADING_FALSE",
-        loading: false
-    }
-}
+// export const loadingFalse = () => {
+//     return {
+//         type: "LOADING_FALSE",
+//         loading: false
+//     }
+// }
 
 // asyncronous action creators
-export const getMovies = () => {
-    return dispatch => { 
-        dispatch(loadingTrue())
-        return fetch('https://web-brut-api.herokuapp.com/movies')
-            .then(r => r.json())
-            .then(movies => dispatch(setMovies(movies), dispatch(loadingFalse())))
-    }
-}   
+// export const getMovies = () => {
+//     return dispatch => { 
+//         dispatch(loadingTrue())
+//         return fetch('https://web-brut-api.herokuapp.com/movies')
+//             .then(r => r.json())
+//             .then(movies => dispatch(setMovies(movies), dispatch(loadingFalse())))
+//     }
+// }   
 
+
+export const getMovies = () => {
+    try {
+        return dispatch => {
+            // dispatch(loadingTrue())
+            return fetch('https://web-brut-api.herokuapp.com/movies')
+                .then(r => r.json())
+                // .then(movies => dispatch(setMovies(movies), dispatch(loadingFalse())))
+                .then(movies => dispatch({type: 'GET_MOVIES', movies: movies}))
+        }
+    }   
+    catch(error){
+        console.log(error)
+    }
+}
 
 // const movies = [{
     //     "id": 22,
