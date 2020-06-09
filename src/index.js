@@ -18,7 +18,6 @@ const reducers = combineReducers(
 )
 
 const enhancers = composeEnhancers(
-  
     applyMiddleware(thunk)
 )
 
