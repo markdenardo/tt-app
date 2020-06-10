@@ -1,52 +1,53 @@
 import React from 'react';
 import { getMovies } from '../actions/movieActions'
 import { connect } from 'react-redux'
-import Player from './Player'
+import ReactPlayer from 'react-player'
 
 class MovieList extends React.Component {
 
     componentDidMount() {
         this.props.getMovies()
-    }
+    };
 
     handleLoading = () => {
         console.log(this.props)
-        // if (this.props.loading === true && this.props.movie === undefined) {
         if (this.props.loading === true) {
             return <div>Loading...</div>
         }
-        // else if (this.props.loading !== true && this.props.movie !== undefined){
         else if (this.props.loading !== true) {
-            return console.log(this.props.movies)
-            // return this.props.movies.map(movie=><div>{movie.name}</div>)
+            return this.props.movies.map(movie => <div><header>{movie.name}{movie.dir}{movie.year}</header>
+                <ReactPlayer url={movie.url}/>
+                </div>)
         }
-        else if (this.props.movies == null) {
-            return <div>NULL</div>
-        }
-
-    }
+    };
 
     render() { 
         return (
-            <div>
+            <div style={{
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center"
+            }}>
                 {this.handleLoading()}
+                {/* {this.props.movies.name} */}
+                
             </div>
         )
     };
 
-}
+};
 
 const mapStateToProps = state => {
     return ({
         movies: state.movies
     })
-}
+};
 
 const mapDispatchToProps = (dispatch) => {
     return {
         getMovies: () => dispatch(getMovies)
     }
-}
+};
 
-    export default connect(mapStateToProps, {getMovies})(MovieList);
+    export default connect(mapStateToProps, mapDispatchToProps(getMovies))(MovieList);
 

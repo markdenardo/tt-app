@@ -1,14 +1,51 @@
 import React from 'react'
 import HomeText from './HomeText'
-import Player from '../containers/Player'
+import ReactPlayer from 'react-player'
+import { connect } from 'react-redux'
+import { getMovies } from '../actions/movieActions'
 
-const Home = () => {
-    return (
-        <div className="home-div">
-            <HomeText />
-            <Player />
-        </div>
-        );
+class Home extends React.Component{
+
+    componentDidMount() {
+        this.props.getMovies()
+       
     };
 
-export default Home;
+    getRandomInt(min, max) {
+        min = Math.ceil(min);
+        max = Math.floor(max);
+        return Math.floor(Math.random() * (max - min + 1)) + min;
+    }
+
+    getCurrentMovie = () => {
+        if (this.props.movies.length > 0) {
+            let randomNumber = this.getRandomInt(0, this.props.movies.length);
+            return this.props.movies[randomNumber];
+        }
+        return "";
+    }
+
+    render(){
+            return (
+                <div className="home-div">
+                    <HomeText />
+                    <ReactPlayer url={this.getCurrentMovie().url}/>
+                </div>
+            )
+    }
+        
+};
+
+const mapStateToProps = state => {
+    return ({
+        movies: state.movies
+    })
+};
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        getMovies: () => dispatch(getMovies)
+    }
+};
+
+export default connect(mapStateToProps, mapDispatchToProps(getMovies))(Home);
