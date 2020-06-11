@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 import ReactPlayer from 'react-player'
 
 
-class MovieList extends React.Component {
+class MovieNames extends React.Component {
 
     componentDidMount() {
         this.props.getMovies()
@@ -16,19 +16,14 @@ class MovieList extends React.Component {
             return <div>Loading...</div>
         }
         else if (this.props.loading !== true) {
-            return this.props.movies.map(movie => <div>{movie.name}
-                <ReactPlayer url={movie.url}/>
-                </div>)
+            return this.props.movies.map(movie => 
+                <div ><ul><a href={movie.url}>"{movie.name}"{movie.dir}{movie.year}</a></ul></div>)
         }
     };
 
     render() { 
         return (
-            <div style={{
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center"
-            }}>
+            <div>
                 
                 {this.handleLoading()}
                 
@@ -51,5 +46,5 @@ const mapDispatchToProps = (dispatch) => {
     }
 };
 
-    export default connect(mapStateToProps, mapDispatchToProps(getMovies))(MovieList);
+    export default connect(mapStateToProps, mapDispatchToProps(getMovies))(MovieNames);
 

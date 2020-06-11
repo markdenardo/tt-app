@@ -21,30 +21,38 @@ class MovieForm extends Component {
 
     render() {
         return (
-            <div>
+            <div >
                 <form onSubmit={(event) => this.handleOnSubmit(event)}>
+                    <label>Movie</label>
                     <input
                         type="text"
+                        id="name"
                         name={this.props.name}
                         onChange={(event) => this.handleOnChange(event)} />
-                    <input type="submit" />
+                    <br></br>
+                    <label>URL</label>
                     <input
                         type="text"
+                        id="url"
                         url={this.props.url}
                         onChange={(event) => this.handleOnChange(event)} />
-                    <input type="submit" />
+                    <br></br>
+                    <label>Director</label>
                     <input
                         type="text"
+                        id="dir"
                         dir={this.props.dir}
                         onChange={(event) => this.handleOnChange(event)} />
-                    <input type="submit" />
+                    <br></br>
+                    <label>Year</label>
                     <input
                         type="text"
+
                         year={this.props.year}
                         onChange={(event) => this.handleOnChange(event)} />
-                    <input type="submit" />
+                    <br></br>
                 </form>
-                <submit>submit movie</submit>
+                <button>submit movie</button>
                 {}
             </div>
         )
