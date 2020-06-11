@@ -27,9 +27,14 @@ class Home extends React.Component{
 
     render(){
             return (
-                <div className="home-div">
+                    <div className="home-div" style={{
+                        display: "flex",
+                        justifyContent: "center",
+                        alignItems: "center"
+                    }}>
+                        
                     <HomeText />
-                    <ReactPlayer url={this.getCurrentMovie().url}/>
+                        <ReactPlayer url={this.getCurrentMovie().url} />
                 </div>
             )
     }

@@ -1,5 +1,6 @@
 import React from 'react'
-import Carousel from './Carousel'
+import MovieList from '../containers/MovieList'
+// import Carousel from './Carousel'
 
 const TopTen = () => {
     return (
@@ -9,7 +10,7 @@ const TopTen = () => {
             alignItems: "center"
         }}>
             <h1>
-            <Carousel/>
+                <MovieList />
             </h1>
         </div>
         )

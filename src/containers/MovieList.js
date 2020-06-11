@@ -3,6 +3,7 @@ import { getMovies } from '../actions/movieActions'
 import { connect } from 'react-redux'
 import ReactPlayer from 'react-player'
 
+
 class MovieList extends React.Component {
 
     componentDidMount() {
@@ -28,8 +29,9 @@ class MovieList extends React.Component {
                 justifyContent: "center",
                 alignItems: "center"
             }}>
+                
                 {this.handleLoading()}
-                {/* {this.props.movies.name} */}
+                
                 
             </div>
         )

@@ -14,3 +14,28 @@ export const getMovies = () => {
         console.log(error)
     }
 }
+
+// export const addMovie = () => {
+   
+//     try {
+//         return dispatch => {
+//             return fetch('https://web-brut-api.herokuapp.com/movies',{
+//                 method: 'POST',
+//                 headers: {
+//                     "Content-Type": "application/json",
+//                     "Accept": "application/json"
+//                 },
+//                 body: JSON.stringify({
+//                     "name": `${user.target.name}`,
+//                     "url": `${user.target.url}`,
+//                     "dir": `${user.target.dir}`,
+//                     "year": `${user.target.dir}`
+//                 })
+//             })
+//             .then(movies => dispatch({type: 'POST_MOVIE', movies:movies}))
+//         }    
+//         }
+//     catch(error){
+//         console.log(error)
+//     }
+// }

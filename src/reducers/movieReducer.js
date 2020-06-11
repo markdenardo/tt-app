@@ -9,6 +9,12 @@ const movieReducer = (state = {movies: [], movie: {},loading: false }, action) =
                 loading: false
             }
             
+        case 'ADD_MOVIE':
+            return {
+                ...state,
+                movies: action.movies,
+                loading: false
+            }
   
 
         default:
