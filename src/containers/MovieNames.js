@@ -1,7 +1,6 @@
 import React from 'react';
 import { getMovies } from '../actions/movieActions'
 import { connect } from 'react-redux'
-import ReactPlayer from 'react-player'
 
 
 class MovieNames extends React.Component {
@@ -24,10 +23,7 @@ class MovieNames extends React.Component {
     render() { 
         return (
             <div>
-                
                 {this.handleLoading()}
-                
-                
             </div>
         )
     };
