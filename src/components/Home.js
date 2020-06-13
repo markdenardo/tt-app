@@ -14,13 +14,14 @@ class Home extends React.Component{
     getRandomInt(min, max) {
         min = Math.ceil(min);
         max = Math.floor(max);
-        return Math.floor(Math.random() * (max - min + 1)) + min;
+        return Math.floor(Math.random() * (max - min)) + min;
     }
 
     getCurrentMovie = () => {
         if (this.props.movies.length > 0) {
             let randomNumber = this.getRandomInt(0, this.props.movies.length);
             return this.props.movies[randomNumber];
+                    
         }
         return "";
     }

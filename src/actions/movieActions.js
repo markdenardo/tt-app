@@ -1,4 +1,5 @@
 // asyncronous action creators
+import fetch from 'cross-fetch'
 
 export const getMovies = () => {
     try {
@@ -15,24 +16,26 @@ export const getMovies = () => {
     }
 }
 
-export const addMovie = (movie) => {
-    try {
-        return dispatch => {
-            return fetch('https://web-brut-api.herokuapp.com/movies',{
-                method: 'POST',
-                body: JSON.stringify(movie),
-                headers: {
-                    "Content-Type": "application/json",
-                    "Accept": "application/json"
-                }
-            })
-            .then(movies => dispatch({type: 'POST_MOVIE', movies:movies}))
-        }    
-        }
-    catch(error){
-        console.log(error)
-    }
-}
+// export const addMovie = (movie) => {
+//     try {
+//         return dispatch => {
+//             return fetch('https://web-brut-api.herokuapp.com/movies',{
+//                 method: 'POST',
+//                 headers: {
+//                     "Content-Type": "application/json",
+//                     "Accept": "application/json"
+//                 },
+//                 body: JSON.stringify(movie)
+//             })
+//             .then(r=>r.json())
+//             // .then(response => dispatch({type: 'ADD_MOVIE', response}))
+//             .then(movie => console.log(movie))
+//         }    
+//     }
+//     catch(error){
+//         console.log(error)
+//     }
+// }
 
 // export const addConcert = concert => async dispatch => {
 //     try {

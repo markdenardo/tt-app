@@ -1,5 +1,4 @@
 import React from 'react'
-import MovieList from '../containers/MovieList'
 import MovieForm from '../containers/MovieForm'
 import MovieNames from '../containers/MovieNames'
 

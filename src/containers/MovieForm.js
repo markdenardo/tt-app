@@ -17,9 +17,10 @@ class MovieForm extends Component {
 
 
     handleOnSubmit(event) {
-        event.preventDefault();
-
-        
+        if (event !== undefined){
+            event.preventDefault();
+            // addMovie({ name: "Darjeeling", url: "https://www.youtube.com/watch?v=aO1bYukdvLI", dir:"Wes", year: 2007 })
+        }
     }
 
     render() {
@@ -59,9 +60,8 @@ class MovieForm extends Component {
                         value={this.state.year}
                         onChange={event => this.handleChange(event)} />
                     <br></br>
+                    <input onClicked={this.handleOnSubmit()} type="submit" value="Submit"/>
                 </form>
-                <button>submit movie</button>
-                {}
             </div>
         )
     }
