@@ -45,6 +45,8 @@ export const addMovie = (movie) => {
     }
 }
 
+
+
 // export const addConcert = concert => async dispatch => {
 //     try {
 //         setLoading();
