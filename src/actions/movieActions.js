@@ -10,9 +10,9 @@ export const getMovies = () => {
                 // .then(movies => dispatch(setMovies(movies), dispatch(loadingFalse())))
                 .then(movies => dispatch({type: 'GET_MOVIES', movies: movies}))
         }
-    }   
-    catch(error){
-        console.log(error)
+    }
+     catch(error) {
+        console.log(error);
     }
 }
 
@@ -25,25 +25,20 @@ export const getMovies = () => {
 // }
 
 export const addMovie = (movie) => {
-    try {
-        return dispatch => {
-            return fetch('https://web-brut-api.herokuapp.com/movies',{
-                method: 'POST',
-                headers: {
-                    "Content-Type": "application/json",
-                    "Accept": "application/json"
-                },
-                body: JSON.stringify(movie)
-            })
-            .then(r=>r.json())
-            .then(response => dispatch({type: 'ADD_MOVIE', response}))
-            // .then(movie => console.log(movie))
-        }    
+    return dispatch => {
+        return fetch('https://web-brut-api.herokuapp.com/movies', {
+            method: 'POST',
+            headers: {
+                "Content-Type": "application/json",
+                "Accept": "application/json"
+            },
+            body: JSON.stringify(movie)
+        })
+            .then(r => r.json())
+            .then(movie => dispatch({ type: 'ADD_MOVIE', movie }))
+        // .then(movie => console.log(movie))
     }
-    catch(error){
-        console.log(error)
-    }
-}
+};
 
 
 

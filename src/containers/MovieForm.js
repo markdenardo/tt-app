@@ -1,19 +1,22 @@
 import React, { Component } from 'react'
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux'
 import { addMovie, getMovies } from '../actions/movieActions'
-import { bindActionCreators } from 'redux';
 
 class MovieForm extends Component {
 
-     
     state = { name: '', url: '', dir: '', year: ''}
-    movies = []
+    movies = [];
+
+    constructor(props) {
+        super(props);
+        this.handleOnSubmit = this.handleOnSubmit.bind(this);
+    }
 
     componentDidMount() {
         // this.props.getMovies()
         // this.movies = getMovies()
-
-    };
+    }
 
     handleChange(event) {
         this.setState({
@@ -21,24 +24,24 @@ class MovieForm extends Component {
         })
     }
 
-
     handleOnSubmit(event) {
-        if (event !== undefined && this.props.getMovies() !== undefined){
-            // event.preventDefault();
-            // this.addMovie({ name: this.state.name, url: this.state.url, dir:this.state.dir, year: this.state.year })
-
-            event.preventDefault()
-            let formData = { name: this.state.name, url: this.state.url, dir: this.state.dir, year: this.state.year  }
-            let dataArray = this.props.getMovies.concat(formData)
-            this.movies.setState({ movies: dataArray })
-        }
+        if (event) {
+            event.preventDefault();
+            // const { dispatch } = this.props
+            let movie = {
+                name: this.state.name,
+                url: this.state.url,
+                dir: this.state.dir,
+                year: this.state.year
+            };
+            this.props.dispatch(addMovie(movie));
+        } else { return; }
     }
 
     render() {
         return (
-           
-            <div >
-                <form onSubmit={(event) => this.handleOnSubmit(event.target.value)}>
+            <div>
+                <form onSubmit={this.handleOnSubmit}>
                     <label>Movie</label>
                     <input
                         type='text'
@@ -77,7 +80,10 @@ class MovieForm extends Component {
         )
     }
 }
-// export default MovieForm;
+
+MovieForm.propTypes = {
+    dispatch: PropTypes.func.isRequired
+}
 
 const mapStateToProps = state => {
     return ({
@@ -93,13 +99,4 @@ const mapDispatchToProps = dispatch => {
     };
 };
 
-// function mapDispatchToProps(dispatch) {
-//     return {
-//         actions: {
-//             addMovie: bindActionCreators(addMovie, dispatch),
-//             getMovies: bindActionCreators(getMovies, dispatch)
-//         }
-//     };
-
-
-export default connect(mapStateToProps, mapDispatchToProps(addMovie))(MovieForm);
+export default connect(mapStateToProps)(MovieForm);

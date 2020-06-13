@@ -10,7 +10,13 @@ const movieReducer = (state = {movies: [], movie: {},loading: false }, action) =
             }
             
         case 'ADD_MOVIE':
-            const movie = { id: action.movie.id, name: action.movie.name, url: action.movie.url, dir: action.movie.dir, year: action.movie.year};
+            debugger;
+            const movie = {
+                id: action.movie.id,
+                name: action.movie.name,
+                url: action.movie.url,
+                dir: action.movie.dir, year: action.movie.year
+            };
             return {
                 ...state,
                 movies: [...state.movies, movie],
