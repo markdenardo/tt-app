@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { connect } from 'react'
+import { connect } from 'react-redux'
 import { addMovie } from '../actions/movieActions'
 
 class MovieForm extends Component {
@@ -19,7 +19,7 @@ class MovieForm extends Component {
     handleOnSubmit(event) {
         if (event !== undefined){
             event.preventDefault();
-            // addMovie({ name: "Darjeeling", url: "https://www.youtube.com/watch?v=aO1bYukdvLI", dir:"Wes", year: 2007 })
+            addMovie({ name: this.state.name, url: this.state.url, dir:this.state.dir, year: this.state.year })
         }
     }
 
@@ -66,18 +66,27 @@ class MovieForm extends Component {
         )
     }
 }
-export default MovieForm;
+// export default MovieForm;
 
-// const mapStateToProps = state => {
-//     return ({
-//         movie: state.movie
-//     })
-// };
+const mapStateToProps = state => {
+    return ({
+        movie: state.movie
+    })
+};
 
 // const mapDispatchToProps = (dispatch) => {
 //     return {
-//         addMovie: () => dispatch(addMovie)
+//         addMovie: () => dispatch(addMovie())
 //     }
 // };
 
-// export default connect(mapStateToProps, mapDispatchToProps(addMovie))(MovieForm);
+const mapDispatchToProps = dispatch => {
+    return {
+        addMovie: () => {
+            dispatch(addMovie())
+        }
+    };
+};
+
+
+export default connect(mapStateToProps, mapDispatchToProps(addMovie))(MovieForm);
