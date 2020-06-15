@@ -1,12 +1,12 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux'
-import { addMovie, getMovies } from '../actions/movieActions'
+import { addMovie } from '../actions/movieActions'
 
 class MovieForm extends Component {
 
     state = { name: '', url: '', dir: '', year: ''}
-    movies = [];
+    // movies = [];
 
     constructor(props) {
         super(props);
@@ -30,7 +30,6 @@ class MovieForm extends Component {
                 year: this.state.year
             };
             this.props.dispatch(addMovie(movie));
-            addMovie(movie)
         } else { return; }
     }
 
@@ -77,13 +76,16 @@ class MovieForm extends Component {
     }
 }
 
+
 MovieForm.propTypes = {
     dispatch: PropTypes.func.isRequired
 }
 
+
 const mapStateToProps = state => {
     return ({
         movies: state.movies
+        // movies: this.props.movies
     })
 };
 
