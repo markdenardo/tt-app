@@ -13,12 +13,7 @@ class MovieForm extends Component {
         this.handleOnSubmit = this.handleOnSubmit.bind(this);
     }
 
-    componentDidMount() {
-        // this.props.getMovies()
-        // this.movies = getMovies()
-    }
-
-    handleChange(event) {
+    handleChange = (event) => {
         this.setState({
             [event.target.name]: event.target.value
         })
@@ -27,7 +22,7 @@ class MovieForm extends Component {
     handleOnSubmit(event) {
         if (event) {
             event.preventDefault();
-            // const { dispatch } = this.props
+
             let movie = {
                 name: this.state.name,
                 url: this.state.url,
@@ -35,6 +30,7 @@ class MovieForm extends Component {
                 year: this.state.year
             };
             this.props.dispatch(addMovie(movie));
+            addMovie(movie)
         } else { return; }
     }
 
@@ -89,14 +85,6 @@ const mapStateToProps = state => {
     return ({
         movies: state.movies
     })
-};
-
-const mapDispatchToProps = dispatch => {
-    return {
-        addMovie: () => {
-            dispatch(addMovie())
-        }
-    };
 };
 
 export default connect(mapStateToProps)(MovieForm);

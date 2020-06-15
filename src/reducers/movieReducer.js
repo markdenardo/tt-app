@@ -9,24 +9,25 @@ const movieReducer = (state = {movies: [], movie: {},loading: false }, action) =
                 loading: false
             }
             
-        case 'ADD_MOVIE':
-            debugger;
-            const movie = {
-                id: action.movie.id,
-                name: action.movie.name,
-                url: action.movie.url,
-                dir: action.movie.dir, year: action.movie.year
-            };
-            return {
-                ...state,
-                movies: [...state.movies, movie],
-                loading: false
-            }
-  
+            case 'ADD_MOVIE':
+                // debugger;
+                const movie = {
+                    id: action.movie.id,
+                    name: action.movie.name,
+                    url: action.movie.url,
+                    dir: action.movie.dir, 
+                    year: action.movie.year
+                };
+                return {
+                    ...state,
+                    movies: [...state.movies, movie],
+                    loading: false
+                }
+    
 
-        default:
-            return state;
-    };
+            default:
+                return state;
+        };
 
     
 };

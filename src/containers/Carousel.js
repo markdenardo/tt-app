@@ -3,8 +3,7 @@ import { getMovies } from '../actions/movieActions'
 import { connect } from 'react-redux'
 import ReactPlayer from 'react-player'
 
-
-class MovieList extends React.Component {
+class Carousel extends React.Component {
 
     componentDidMount() {
         this.props.getMovies()
@@ -28,11 +27,8 @@ class MovieList extends React.Component {
                 display: "flex",
                 justifyContent: "center",
                 alignItems: "center"
-            }}>
-                
-                {this.handleLoading()}
-                
-                
+            }}>         
+                {this.handleLoading()}           
             </div>
         )
     };
@@ -51,5 +47,5 @@ const mapDispatchToProps = (dispatch) => {
     }
 };
 
-    export default connect(mapStateToProps, mapDispatchToProps(getMovies))(MovieList);
+export default connect(mapStateToProps, mapDispatchToProps(getMovies))(Carousel);
 

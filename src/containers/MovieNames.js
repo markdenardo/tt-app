@@ -16,7 +16,7 @@ class MovieNames extends React.Component {
         }
         else if (this.props.loading !== true) {
             return this.props.movies.map(movie => 
-                <div ><ul><a href={movie.url}>"{movie.name}"{movie.dir}{movie.year}</a></ul></div>)
+                <div key={movie.id}><ul  ><a href={movie.url}>"{movie.name}"{movie.dir}{movie.year}</a></ul></div>)
         }
     };
 
