@@ -1,5 +1,10 @@
-// asyncronous action creators
-// import fetch from 'cross-fetch'
+
+export const addRandomMovie = movie => {
+    return {
+        type: 'RAND_MOVIE',
+        movie
+    }
+}
 
 export const getMovies = () => {
     try {
@@ -9,20 +14,13 @@ export const getMovies = () => {
                 .then(r => r.json())
                 // .then(movies => dispatch(setMovies(movies), dispatch(loadingFalse())))
                 .then(movies => dispatch({type: 'GET_MOVIES', movies: movies}))
+                .then()
         }
     }
      catch(error) {
         console.log(error);
     }
 }
-
-// export function addMovie(movie, dispatch){
-//     return dispatch({
-//         type: 'ADD_MOVIE',
-//         movie: movie
-//     })
-
-// }
 
 export const addMovie = (movie) => {
     return dispatch => {
@@ -42,19 +40,3 @@ export const addMovie = (movie) => {
 
 
 
-// export const addConcert = concert => async dispatch => {
-//     try {
-//         setLoading();
-//         const res = await fetch('http://localhost:3000/concerts', {
-//             method: 'POST',
-//             body: JSON.stringify(concert),
-//             headers: {
-//                 'Content-Type': 'application/json',
-//                 Accept: 'application/json'
-//             }
-//         });
-//         const data = await res.json();
-//         dispatch({
-//             type: ADD_CONCERT,
-//             payload: data
-//         });

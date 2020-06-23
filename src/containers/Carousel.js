@@ -2,6 +2,7 @@ import React from 'react';
 import { getMovies } from '../actions/movieActions'
 import { connect } from 'react-redux'
 import ReactPlayer from 'react-player'
+import Card from '@material-ui/core/Card';
 
 class Carousel extends React.Component {
 
@@ -16,19 +17,15 @@ class Carousel extends React.Component {
         }
         else if (this.props.loading !== true) {
             return this.props.movies.map(movie => <div>{movie.name}
-                <ReactPlayer url={movie.url}/>
+                <Card className="card"><ReactPlayer url={movie.url} /></Card>
                 </div>)
         }
     };
 
     render() { 
         return (
-            <div style={{
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center"
-            }}>         
-                {this.handleLoading()}           
+            <div className="carousel-container">
+                {this.handleLoading()}
             </div>
         )
     };
@@ -48,4 +45,5 @@ const mapDispatchToProps = (dispatch) => {
 };
 
 export default connect(mapStateToProps, mapDispatchToProps(getMovies))(Carousel);
+
 

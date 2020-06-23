@@ -1,14 +1,19 @@
 import React from 'react'
 import ReactPlayer from 'react-player'
 import { connect } from 'react-redux'
-import { getMovies } from '../actions/movieActions'
+import { getMovies, addRandomMovie } from '../actions/movieActions'
+import Card from '@material-ui/core/Card'
+import PropTypes from 'prop-types';
 
 class RandomMovie extends React.Component {
 
+ 
     componentDidMount() {
         this.props.getMovies()
 
     };
+
+
 
     getRandomInt(min, max) {
         min = Math.ceil(min);
@@ -17,37 +22,48 @@ class RandomMovie extends React.Component {
     }
 
     getCurrentMovie = () => {
+        // console.log("clicked")
         if (this.props.movies.length > 0) {
             let randomNumber = this.getRandomInt(0, this.props.movies.length);
-            return this.props.movies[randomNumber];
+            let movie = this.props.movies[randomNumber]
+            this.props.addRandomMovie(movie)
+            return movie;
         }
         return "";
     }
 
-    render() {
-        return (  
-                <div style={{
-                    display: "flex",
-                    justifyContent: "center",
-                    alignItems: "center"
-                }}>
-                    <ReactPlayer url={this.getCurrentMovie().url} />
-                </div>
-        )
+    handleClick = () => {
+        console.log("clicked")
+        return this.getCurrentMovie()
     }
+ 
+
+    render() {
+        
+            return ( 
+                    <div className="randommovie-container">
+                        <ul>
+                        <Card className="card"><ReactPlayer url={this.getCurrentMovie().url}/></Card><br></br>
+                        <button onClick={this.handleClick}>Load Random Movie</button> 
+                        </ul>
+                    </div>
+            )
+        }
+        // }
 
 };
+
+RandomMovie.propTypes = {
+    dispatch: PropTypes.func.isRequired
+
+}
 
 const mapStateToProps = state => {
     return ({
-        movies: state.movies
+        movies: state.movies,
+        movie: state.movie
     })
 };
 
-const mapDispatchToProps = (dispatch) => {
-    return {
-        getMovies: () => dispatch(getMovies)
-    }
-};
 
-export default connect(mapStateToProps, mapDispatchToProps(getMovies))(RandomMovie);
+export default connect(mapStateToProps, {getMovies, addRandomMovie})(RandomMovie);

@@ -4,7 +4,7 @@ import RandomMovie from '../containers/RandomMovie'
 
  const Home = () => {
     return (
-            <div>   
+            <div className="home-component">   
             <HomeText />                   
             <RandomMovie />
             </div>

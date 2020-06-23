@@ -4,10 +4,12 @@ import MovieNames from '../containers/MovieNames'
 
 function Movies() {
         return (
-            <div>
-                This is a movie form where you can add a movie to the database.
+            <div className="movies-component">
+                <h1>
+                    🎥 Add a YouTube Trailer from your Favorite Movie 🎥
+                    </h1>
                 <MovieForm/>
-                This is a movie list of all the Movies in the Database.
+                <h1>List of Movies</h1>
                 <MovieNames/>
             </div>
         );

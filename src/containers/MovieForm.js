@@ -2,11 +2,13 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux'
 import { addMovie } from '../actions/movieActions'
+// import { makeStyles } from '@material-ui/core/styles';
+import TextField from '@material-ui/core/TextField';
 
 class MovieForm extends Component {
 
     state = { name: '', url: '', dir: '', year: ''}
-    // movies = [];
+    movies = [];
 
     constructor(props) {
         super(props);
@@ -35,40 +37,37 @@ class MovieForm extends Component {
 
     render() {
         return (
-            <div>
-                <form onSubmit={this.handleOnSubmit}>
-                    <label>Movie</label>
-                    <input
+            <div className="movieform-container">
+                <form classname="movieform-form" onSubmit={this.handleOnSubmit}>
+                    
+                    <TextField
                         type='text'
                         name='name'
-                        placeholder='name'
+                        placeholder='Movie'
                         value={this.state.name}
                         onChange={event => this.handleChange(event)} />
-                    <br></br>
-                    <label>URL</label>
-                    <input
+                    
+                    <TextField
                         type='text'
                         name='url'
-                        placeholder='url'
+                        placeholder='YouTube'
                         value={this.state.url}
                         onChange={event => this.handleChange(event)} />
-                    <br></br>
-                    <label>Director</label>
-                    <input
+                    
+                    <TextField
                         type='text'
                         name='dir'
-                        placeholder='dir'
+                        placeholder='Director'
                         value={this.state.dir}
                         onChange={event => this.handleChange(event)}/>
-                    <br></br>
-                    <label>Year</label>
-                    <input
+                    
+                    <TextField
                         type='text'
                         name='year'
-                        placeholder='year'
+                        placeholder='Year'
                         value={this.state.year}
                         onChange={event => this.handleChange(event)} />
-                    <br></br>
+                    
                     <input onClicked={this.handleOnSubmit()} type="submit" value="Submit"/>
                 </form>
             </div>
@@ -76,11 +75,10 @@ class MovieForm extends Component {
     }
 }
 
-
 MovieForm.propTypes = {
     dispatch: PropTypes.func.isRequired
+    
 }
-
 
 const mapStateToProps = state => {
     return ({

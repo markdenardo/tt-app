@@ -22,8 +22,13 @@ const movieReducer = (state = {movies: [], movie: {},loading: false }, action) =
                     ...state,
                     movies: [...state.movies, movie],
                     loading: false
-                }
+                };
     
+            case 'RAND_MOVIE':
+                return {
+                    ...state,
+                    movie: action.movie,
+                }
 
             default:
                 return state;

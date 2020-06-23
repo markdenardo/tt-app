@@ -4,11 +4,7 @@ import Carousel from '../containers/Carousel'
 
 const TopTen = () => {
     return (
-        <div style={{
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center"
-        }}>
+        <div className="topten">
             <h1>
                 <Carousel />
             </h1>
@@ -17,3 +13,4 @@ const TopTen = () => {
     }
 
 export default TopTen
+

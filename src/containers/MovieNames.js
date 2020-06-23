@@ -1,6 +1,7 @@
 import React from 'react';
 import { getMovies } from '../actions/movieActions'
 import { connect } from 'react-redux'
+// import { styled } from '@material-ui/core/styles';
 
 
 class MovieNames extends React.Component {
@@ -16,7 +17,12 @@ class MovieNames extends React.Component {
         }
         else if (this.props.loading !== true) {
             return this.props.movies.map(movie => 
-                <div key={movie.id}><ul  ><a href={movie.url}>"{movie.name}"{movie.dir}{movie.year}</a></ul></div>)
+                <div className="movielist">
+                    <h2>
+                    <div key={movie.id}><ul><a href={movie.url} target="_blank">"{movie.name}" {movie.dir} {movie.year}</a></ul></div>
+                    </h2>
+                </div>
+                )
         }
     };
 

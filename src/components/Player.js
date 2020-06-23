@@ -3,14 +3,8 @@ import ReactPlayer from 'react-player'
 
 const Player = () => {
     return(
-        <div style={{
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center"
-        }}>
-           
+        <div className="player-component">
             <ReactPlayer />
-          
         </div>
     )
 
