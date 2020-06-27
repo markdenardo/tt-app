@@ -7,9 +7,9 @@ const NavBar = () => {
     return(
         <div  className="navbar-component">
             <AppBar>
-            <a><NavLink to="/tt-app/home">Home</NavLink></a>
-            <a><NavLink to="/tt-app/trailers">Trailers</NavLink></a>
-            <a><NavLink to="/tt-app/movies">Movies</NavLink></a>
+            <a><NavLink to="/home">Home</NavLink></a>
+            <a><NavLink to="/trailers">Trailers</NavLink></a>
+            <a><NavLink to="/movies">Movies</NavLink></a>
             </AppBar>
         </div>
     )

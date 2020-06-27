@@ -16,13 +16,13 @@ function App (){
     <Router>
     <div className="App">
       <header className="app-header">
-          <Route exact path="/tt-app" component={App}/>
+          <Route exact path="/" component={App}/>
       <NavBar />
-          <Route exact path="/tt-app/home" component={Home} />
+          <Route  path="/home" component={Home} />
         {/* <Route exact path="/home" component={Home} /> */}
-          <Route exact path="/tt-app/trailers" component={Trailers} />
+          <Route  path="/trailers" component={Trailers} />
         {/* <Route exact path="/trailers" component={Trailers} /> */}
-          <Route exact path="/tt-app/movies" component={Movies} />
+          <Route  path="/movies" component={Movies} />
           {/* <Route exact path="/movies" component={Movies} /> */}
       </header>
     </div>
