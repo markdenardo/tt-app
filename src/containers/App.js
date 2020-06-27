@@ -1,6 +1,5 @@
 import React from 'react';
 import './App.css';
-import Router from 'react'
 
 import {
   BrowserRouter as Router,
@@ -14,7 +13,7 @@ import Movies from '../components/Movies'
 
 function App (){
   return (
-    <Router>
+    <BrowserRouter>
     <div className="App">
       <header className="app-header">
           <Route exact path="/" component={App}/>
@@ -27,7 +26,7 @@ function App (){
           {/* <Route exact path="/movies" component={Movies} /> */}
       </header>
     </div>
-    </Router>
+    </BrowserRouter>
   );
 }
 
