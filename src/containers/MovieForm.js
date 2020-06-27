@@ -2,17 +2,20 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux'
 import { addMovie } from '../actions/movieActions'
-// import { makeStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 
 class MovieForm extends Component {
 
-    state = { name: '', url: '', dir: '', year: ''}
-    movies = [];
-
-    constructor(props) {
+  constructor(props) {
         super(props);
-        this.handleOnSubmit = this.handleOnSubmit.bind(this);
+        this.state = {
+           movie: {
+               name: '', 
+               url: '', 
+               dir: '', 
+               year: ''
+           } 
+        }
     }
 
     handleChange = (event) => {
@@ -21,9 +24,17 @@ class MovieForm extends Component {
         })
     }
 
-    handleOnSubmit(event) {
+    handleOnSubmit = (event) => {
         if (event) {
+
             event.preventDefault();
+
+            let movieReset={
+                name: '',
+                url: '',
+                dir: '',
+                year: ''
+            }
 
             let movie = {
                 name: this.state.name,
@@ -32,7 +43,9 @@ class MovieForm extends Component {
                 year: this.state.year
             };
             this.props.dispatch(addMovie(movie));
-        } else { return; }
+            this.setState({movie: movieReset})
+        } else { 
+            return; }
     }
 
     render() {
@@ -83,7 +96,6 @@ MovieForm.propTypes = {
 const mapStateToProps = state => {
     return ({
         movies: state.movies
-        // movies: this.props.movies
     })
 };
 
