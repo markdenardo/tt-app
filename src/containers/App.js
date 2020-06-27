@@ -17,7 +17,7 @@ function App (){
     <div className="App">
       <header className="app-header">
       <NavBar />
-        <Route exact path="/" component={Home} />
+        <Route exact path="/tt-app" component={Home} />
         <Route exact path="/trailers" component={Trailers} />
         <Route exact path="/movies" component={Movies} />
       </header>
