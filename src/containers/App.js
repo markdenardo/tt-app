@@ -8,17 +8,17 @@ import {
 
 import NavBar from '../components/NavBar'
 import Home from '../components/Home'
-import TopTen from '../components/TopTen'
+import Trailers from '../components/Trailers'
 import Movies from '../components/Movies'
 
-const App = (props) => {
+function App (){
   return (
     <Router>
     <div className="App">
       <header className="app-header">
       <NavBar />
         <Route exact path="/" component={Home} />
-        <Route exact path="/topten" component={TopTen} />
+        <Route exact path="/trailers" component={Trailers} />
         <Route exact path="/movies" component={Movies} />
       </header>
     </div>

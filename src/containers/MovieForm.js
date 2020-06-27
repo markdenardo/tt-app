@@ -48,7 +48,7 @@ class MovieForm extends Component {
                         onChange={event => this.handleChange(event)} />
                     
                     <TextField
-                        type='text'
+                        type='url'
                         name='url'
                         placeholder='YouTube'
                         value={this.state.url}

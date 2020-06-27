@@ -7,13 +7,10 @@ import PropTypes from 'prop-types';
 
 class RandomMovie extends React.Component {
 
- 
     componentDidMount() {
         this.props.getMovies()
 
     };
-
-
 
     getRandomInt(min, max) {
         min = Math.ceil(min);
@@ -37,7 +34,6 @@ class RandomMovie extends React.Component {
         return this.getCurrentMovie()
     }
  
-
     render() {
         
             return ( 
@@ -64,6 +60,5 @@ const mapStateToProps = state => {
         movie: state.movie
     })
 };
-
 
 export default connect(mapStateToProps, {getMovies, addRandomMovie})(RandomMovie);

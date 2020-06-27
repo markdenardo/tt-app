@@ -2,9 +2,9 @@ import React from 'react'
 import Carousel from '../containers/Carousel'
 // import Carousel from './Carousel'
 
-const TopTen = () => {
+const Trailers = () => {
     return (
-        <div className="topten">
+        <div className="trailers">
             <h1>
                 <Carousel />
             </h1>
@@ -12,5 +12,5 @@ const TopTen = () => {
         )
     }
 
-export default TopTen
+export default Trailers
 
