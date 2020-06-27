@@ -1,6 +1,6 @@
 {
-  "homepage": "https://markdenardo.github.io/tt-app/",
   "name": "tt-app",
+  "homepage": "https://markdenardo.github.io/tt-app/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
