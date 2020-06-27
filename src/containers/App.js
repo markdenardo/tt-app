@@ -13,20 +13,20 @@ import Movies from '../components/Movies'
 
 function App (){
   return (
-    <BrowserRouter>
+    <Router>
     <div className="App">
       <header className="app-header">
-          <Route exact path={process.env.PUBLIC_URL + '/'} component={App}/>
+          {/* <Route exact path={process.env.PUBLIC_URL + '/'} component={App}/> */}
       <NavBar />
-          <Route path={process.env.PUBLIC_URL + '/home'} component={Home} />
+          <Route exact path={process.env.PUBLIC_URL + '/'} component={Home} />
         {/* <Route exact path="/home" component={Home} /> */}
-          <Route path={process.env.PUBLIC_URL + '/trailers'} component={Trailers} />
+          <Route exact path={process.env.PUBLIC_URL + '/trailers'} component={Trailers} />
         {/* <Route exact path="/trailers" component={Trailers} /> */}
-          <Route path={process.env.PUBLIC_URL + '/movies'} component={Movies} />
+          <Route exact path={process.env.PUBLIC_URL + '/movies'} component={Movies} />
           {/* <Route exact path="/movies" component={Movies} /> */}
       </header>
     </div>
-    </BrowserRouter>
+    </Router>
   );
 }
 
