@@ -11,19 +11,15 @@ import Home from '../components/Home'
 import Trailers from '../components/Trailers'
 import Movies from '../components/Movies'
 
-const App = (props)=> {
+function App () {
   return (
     <Router>
     <div className="App">
       <header className="app-header">
-          {/* <Route exact path={process.env.PUBLIC_URL + '/'} component={App}/> */}
       <NavBar />
-          <Route exact path="/" component={Home} />
-        {/* <Route exact path="/home" component={Home} /> */}
-          <Route exact path="/trailers" component={Trailers} />
-        {/* <Route exact path="/trailers" component={Trailers} /> */}
-          <Route exact path="/movies" component={Movies} />
-          {/* <Route exact path="/movies" component={Movies} /> */}
+          <Route  path="/" component={Home} />
+          <Route  path="/trailers" component={Trailers} />
+          <Route  path="/movies" component={Movies} />
       </header>
     </div>
     </Router>
