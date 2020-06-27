@@ -16,13 +16,13 @@ function App (){
     <Router>
     <div className="App">
       <header className="app-header">
-          <Route exact path={process.env.PUBLIC_URL + '/'} component={App}/>
+          <Route exact path="/tt-app" component={App}/>
       <NavBar />
-          <Route exact path={process.env.PUBLIC_URL + '/home'} component={Home} />
+          <Route exact path="/tt-app/home" component={Home} />
         {/* <Route exact path="/home" component={Home} /> */}
-          <Route exact path={process.env.PUBLIC_URL + '/trailers'} component={Trailers} />
+          <Route exact path="/tt-app/trailers" component={Trailers} />
         {/* <Route exact path="/trailers" component={Trailers} /> */}
-          <Route exact path={process.env.PUBLIC_URL + '/movies'} component={Movies} />
+          <Route exact path="/tt-app/movies" component={Movies} />
           {/* <Route exact path="/movies" component={Movies} /> */}
       </header>
     </div>
