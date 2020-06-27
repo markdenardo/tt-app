@@ -16,8 +16,9 @@ function App (){
     <Router>
     <div className="App">
       <header className="app-header">
+          <Route path={process.env.PUBLIC_URL + '/'} />
       <NavBar />
-        <Route exact path="/tt-app" component={Home} />
+        <Route exact path="/home" component={Home} />
         <Route exact path="/trailers" component={Trailers} />
         <Route exact path="/movies" component={Movies} />
       </header>
