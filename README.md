@@ -1,6 +1,7 @@
 top-trailers 
 
 Rails API: https://github.com/markdenardo/wb_api
+
 Live Demo: https://markdenardo.github.io/tt-app/
 
 this application is a video player and sharing platform in react-redux which allows a user to 
