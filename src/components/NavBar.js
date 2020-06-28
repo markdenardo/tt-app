@@ -7,9 +7,9 @@ const NavBar = () => {
     return(
         <div  className="navbar-component">
             <AppBar>
-            <a><NavLink to="/">Home</NavLink></a>
-            <a><NavLink to="/trailers">Trailers</NavLink></a>
-            <a><NavLink to="/movies">Movies</NavLink></a>
+                <a><NavLink to={process.env.PUBLIC_URL + '/'}>Home</NavLink></a>
+                <a><NavLink to={process.env.PUBLIC_URL + '/trailers'}>Trailers</NavLink></a>
+                <a><NavLink to={process.env.PUBLIC_URL + '/movies'}>Movies</NavLink></a>
             </AppBar>
         </div>
     )
