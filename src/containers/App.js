@@ -16,10 +16,11 @@ function App () {
     <Router>
     <div className="App">
       <header className="app-header">
+          <Route path={process.env.PUBLIC_URL + '/'} component={App} />
       <NavBar />
-          <Route  path="/" component={Home} />
-          <Route  path="/trailers" component={Trailers} />
-          <Route  path="/movies" component={Movies} />
+          <Route path={process.env.PUBLIC_URL + '/'} component={Home} />
+          <Route path={process.env.PUBLIC_URL + '/trailers'} component={Trailers} />
+          <Route path={process.env.PUBLIC_URL + '/movies'} component={Movies} />
       </header>
     </div>
     </Router>
