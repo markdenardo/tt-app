@@ -14,7 +14,12 @@ class MovieForm extends Component {
                url: '', 
                dir: '', 
                year: ''
-           } 
+           } ,
+           
+        //    name: '',
+        //     url: '',
+        //     dir: '',
+        //     year: ''
         }
     }
 
@@ -29,21 +34,24 @@ class MovieForm extends Component {
 
             event.preventDefault();
 
-            let movieReset={
-                name: '',
-                url: '',
-                dir: '',
-                year: ''
-            }
-
             let movie = {
                 name: this.state.name,
                 url: this.state.url,
                 dir: this.state.dir,
                 year: this.state.year
             };
+
             this.props.dispatch(addMovie(movie));
-            this.setState({movie: movieReset})
+
+            // this.setState({movie: movieReset})
+            this.setState({
+                movie: {
+                    name: '',
+                    url: '',
+                    dir: '',
+                    year: ''}
+                
+            })
         } else { 
             return; }
     }
@@ -51,7 +59,7 @@ class MovieForm extends Component {
     render() {
         return (
             <div className="movieform-container">
-                <form classname="movieform-form" onSubmit={this.handleOnSubmit}>
+                <form className="movieform-form" onSubmit={this.handleOnSubmit}>
                     
                     <TextField
                         type='text'
@@ -81,7 +89,7 @@ class MovieForm extends Component {
                         value={this.state.year}
                         onChange={event => this.handleChange(event)} />
                     
-                    <input onClicked={this.handleOnSubmit()} type="submit" value="Submit"/>
+                    <input onClick={this.handleOnSubmit()} type="submit" value="Submit"/>
                 </form>
             </div>
         )

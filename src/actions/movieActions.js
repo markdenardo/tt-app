@@ -14,15 +14,15 @@ export const getMovies = () => {
                 .then(r => r.json())
                 // .then(movies => dispatch(setMovies(movies), dispatch(loadingFalse())))
                 .then(movies => dispatch({type: 'GET_MOVIES', movies: movies}))
-                .then()
         }
     }
      catch(error) {
-        console.log(error);
+            console.log(error)
     }
 }
 
 export const addMovie = (movie) => {
+ 
     return dispatch => {
         return fetch('https://web-brut-api.herokuapp.com/movies', {
             method: 'POST',
@@ -33,9 +33,12 @@ export const addMovie = (movie) => {
             body: JSON.stringify(movie)
         })
             .then(r => r.json())
-            .then(movie => dispatch({ type: 'ADD_MOVIE', movie }))
+            .then(movie => {
+          
+                dispatch({ type: 'ADD_MOVIE', movie })})
         // .then(movie => console.log(movie))
     }
+ 
 };
 
 

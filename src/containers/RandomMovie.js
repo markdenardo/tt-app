@@ -6,9 +6,19 @@ import Card from '@material-ui/core/Card'
 import PropTypes from 'prop-types';
 
 class RandomMovie extends React.Component {
+    constructor() {
+        super();
+
+        this.state = {
+            randomNumber: 0,
+            currentMovie:{}
+        }
+
+    };
 
     componentDidMount() {
         this.props.getMovies()
+        .then(movie => {this.getCurrentMovie()})
 
     };
 
@@ -31,7 +41,7 @@ class RandomMovie extends React.Component {
 
     handleClick = () => {
         console.log("clicked")
-        return this.getCurrentMovie()
+        return this.getCurrentMovie();
     }
  
     render() {
@@ -49,10 +59,10 @@ class RandomMovie extends React.Component {
 
 };
 
-RandomMovie.propTypes = {
-    dispatch: PropTypes.func.isRequired
+// RandomMovie.propTypes = {
+//     dispatch: PropTypes.func.isRequired
 
-}
+// }
 
 const mapStateToProps = state => {
     return ({
